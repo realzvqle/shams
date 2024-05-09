@@ -67,11 +67,7 @@ void draw_snake(data* data, snake* snake){
         snake->rect.top+=speed;
         snake->rect.bottom+=speed;
     }
-
-  FillRect(data->dc, &snake->rect, snake->brush);
-
-    // Draw snake tail
-    
+    FillRect(data->dc, &snake->rect, snake->brush); 
     for (int i = 0; i < snake->amountOfTail; i++) {
         if(snake->state == LEFT || snake->state == RIGHT){
             FillRect(data->dc, &(RECT){snake->rect.left - (i + 1) * 10, snake->rect.top, 
@@ -83,8 +79,6 @@ void draw_snake(data* data, snake* snake){
         }
     }
     DrawTextA(data->dc, i_to_a(snake->amountOfTail, 6), 6, &snake->rect, 0);
-    
-
 }
 
 BOOL end_snake(snake* snake){
